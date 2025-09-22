@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const { v4 : uuidv4 } = require("uuid");
 const { setUser } = require("../service/auth");
+const bcrypt = require("bcrypt");
 
 async function handleUserSignup(req,res){
     try{
@@ -15,10 +16,13 @@ async function handleUserSignup(req,res){
             return res.status(400).render("signup",{ error:"Username or email already exists"});
         }
 
+        // Hash the password before saving
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
         await User.create({
             username,
             email,
-            password,
+            password: hashedPassword,
         });
 
         return res.redirect("/");
@@ -36,14 +40,25 @@ async function handleUserlogin(req,res){
             return res.status(400).render("login",{ error:"Both fields are required"});
         }
 
-        const user = await User.findOne({ username, password });
+        const user = await User.findOne({ username });
         if(!user){
+            return res.status(400).render("login", {error:"Invalid username or password"});
+        }
+
+        // Compare the provided password with the hashed password
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if(!isPasswordValid){
             return res.status(400).render("login", {error:"Invalid username or password"});
         }
         // const sessionId = uuidv4();
         // setUser(sessionId, user);
         const token = setUser(user);
-        res.cookie("uid",token);
+        res.cookie("uid", token, {
+            httpOnly: true,
+            sameSite: 'Lax',
+            secure: false,
+            path: '/',
+        });
         return res.redirect("/dashboard");
 
     }catch(err){
