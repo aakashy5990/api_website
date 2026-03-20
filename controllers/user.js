@@ -59,6 +59,7 @@ async function handleUserlogin(req,res){
             secure: false,
             path: '/',
         });
+        // return res.status(200).json({success:true,token:token})
         return res.redirect("/dashboard");
 
     }catch(err){
