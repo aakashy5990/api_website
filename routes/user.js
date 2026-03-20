@@ -15,9 +15,6 @@ router.post('/login', handleUserlogin)
 router.post('/signup', handleUserSignup)
 
 // Create API page
-router.get('/createjson', (req, res) => {
-    return res.render('users/createjson', { title: 'Create Json' });
-});
 
 // Dummy JSON generator page
 router.get('/dummyjson', (req, res) => {
