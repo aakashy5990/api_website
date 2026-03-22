@@ -11,8 +11,8 @@ const router = express.Router();
 
 // router.use(restrictToLoggedinUserOnly);
 
-router.get('/api/users', getusers);
+router.get('/users', getusers);
 
-router.get('/api/users/:id', getuserbyid);
+router.get('/users/:id', getuserbyid);
 
 module.exports = router;

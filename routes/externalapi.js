@@ -7,12 +7,8 @@ const router = express.Router();
 //authentication middleware to all external API routes
 router.use(restrictToLoggedinUserOnly);
 
-// Route to render the external API page
-router.get('/', (req, res) => {
-    return res.render("nextapi", { data: [] });
-});
-
-
+// Route to render the external API page with data
+router.get('/', getnusers);
 
 router.get('/nusers', getnusers)
 

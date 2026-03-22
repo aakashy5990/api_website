@@ -77,7 +77,7 @@ app.get("/users", (req,res) => {
     return res.json(users);
 })
 
-app.route("/api/users/:id").put((req,res) => {
+app.route("/users/:id").put((req,res) => {
     try {
         // edit user with id 
         const id = Number(req.params.id);

@@ -1,81 +1,70 @@
-<aside class="sidebar p-3">
-    <div class="d-flex align-items-center mb-3 sidebar-brand">
-        <i class="fas fa-gauge-high me-2"></i>
-        <strong>API Dashboard</strong>
+<div style="
+    width:260px;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#ffffff;
+    box-shadow:0 0 10px rgba(0,0,0,0.08);
+    z-index:1000;
+">
+
+    <!-- Logo -->
+    <div style="height:70px; display:flex; align-items:center; padding:0 20px; border-bottom:1px solid #eee;">
+        <h4 style="margin:0; font-weight:600;"> Dashboard</h4>
     </div>
-    <ul class="list-unstyled mb-0 menu-list">
-        <li class="mb-2">
-            <a href="/dashboard" class="text-decoration-none d-flex align-items-center px-2 py-2 rounded hover-bg">
-                <i class="fas fa-home me-2"></i>
-                <span>Home</span>
-            </a>
-        </li>
 
-        <li class="mb-2">
-            <a href="/dummyjson" class="text-decoration-none d-flex align-items-center px-2 py-2 rounded hover-bg">
-                <i class="fas fa-random me-2"></i>
-                <span>Dummy Json</span>
-            </a>
-        </li>
+    <!-- Menu -->
+    <div style="padding:15px;">
 
-        <li>
-            <a href="" class="text-decoration-none d-flex align-items-center px-2 py-2 rounded hover-bg">
-                <i class="fas fa-random me-2"></i>
-                Create Your Json
-            </a>
-        </li>
-        
-        <li class="mt-2">
-            <a href="/adddata" class="btn btn-sm w-100 text-start d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #001; border: none;">
-                <i class="fas fa-plus me-2"></i>
-                Add Data
-            </a>
-        </li>
-        <li class="mt-2">
-            <a href="/my/datasets" class="btn btn-sm w-100 text-start d-flex align-items-center justify-content-center text-decoration-none" style="background: linear-gradient(135deg, #ffd86f 0%, #fc6262 100%); color: #001; border: none;">
-                <i class="fas fa-list me-2"></i>
-                My Data
-            </a>
-        </li>
-        <li class="mb-2">
-        </li>
-        <li class="mb-2">
-            <a href="/users" class="text-decoration-none d-flex align-items-center px-2 py-2 rounded hover-bg">
-                <i class="fas fa-code me-2"></i>
-                <span>JSON API</span>
-            </a>
-        </li>
-        <li class="api-info pt-2 border-top">
-            <a href="javascript:void(0)" class="text-decoration-none d-flex align-items-center px-2 py-2 rounded hover-bg" onclick="showApiInfo()">
-                <i class="fas fa-info-circle me-2"></i>
-                <span>API Info</span>
-            </a>
-        </li>
-    </ul>
+        <a href="/dashboard" class="menu-item">
+            <i class="fas fa-home"></i> Dashboard
+        </a>
 
-    <style>
-        .sidebar {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            height: calc(100vh - 80px);
-            width: 260px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            border-right: 1px solid rgba(255,255,255,0.15);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            overflow-y: auto;
-            z-index: 1030;
-        }
-        .sidebar { display: flex; flex-direction: column; }
-        .sidebar .menu-list { flex: 1; display: flex; flex-direction: column; }
-        .sidebar .menu-list .api-info { margin-top: auto; }
-        .sidebar a { color: #e9edff; }
-        .sidebar a:hover { color: #ffffff; }
-        .hover-bg:hover { background: rgba(255, 255, 255, 0.08); }
-        .sidebar-brand { font-size: 1.1rem; opacity: 0.95; }
-        .sidebar ::-webkit-scrollbar { width: 6px; }
-        .sidebar ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
-    </style>
-</aside>
+        <a href="/adddata" class="menu-item">
+            <i class="fas fa-plus"></i> Add Data
+        </a>
 
+        <a href="/my/datasets" class="menu-item">
+            <i class="fas fa-list"></i> My Data
+        </a>
+
+        <a href="/users" class="menu-item">
+            <i class="fas fa-users"></i> Users API
+        </a>
+
+        <a href="/external/nusers" class="menu-item">
+            <i class="fas fa-globe"></i> External API
+        </a>
+
+        <a href="/docs" class="menu-item">
+            <i class="fas fa-book"></i> Documentation
+        </a>
+
+    </div>
+
+</div>
+
+<style>
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    color: #555;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.menu-item:hover {
+    background: #f1f3f5;
+    color: #000;
+}
+
+.menu-item i {
+    width: 18px;
+}
+</style>
